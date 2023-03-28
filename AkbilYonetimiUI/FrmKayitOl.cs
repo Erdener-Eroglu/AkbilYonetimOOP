@@ -62,6 +62,7 @@ public partial class FrmKayitOl : Form
                     frmg.Show();
                 }
             }
+
             else
             {
                 MessageBox.Show("Kayıt EKLENEMEDİ!!!");
