@@ -48,8 +48,8 @@ public partial class FrmKayitOl : Form
             if (sonuc > 0)
             {
                 MessageBox.Show("Kayıt oluşturuldu.");
-                DialogResult cevap = MessageBox.Show("Giriş sayfasına gitmek ister misin?","SORU",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-                if(cevap == DialogResult.Yes)
+                DialogResult cevap = MessageBox.Show("Giriş sayfasına gitmek ister misin?", "SORU", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (cevap == DialogResult.Yes)
                 {
                     //temizlik
                     //Girişe git.

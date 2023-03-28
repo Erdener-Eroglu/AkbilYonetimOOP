@@ -1,11 +1,13 @@
 ﻿using AkbilYntmIsKatmani;
 using AkbilYntmVeriKatmani;
+using System.Collections;
+
 namespace AkbilYonetimiUI;
 
 public partial class FrmGiris : Form
 {
     public string Email { get; set; } //Kayıt ol formunda kayıt olan kullanıcının emaili buraya gelsin.
-    IVeriTabaniIslemleri veriTabaniIslemleri = new SQLVeriTabaniIslemleri(GenelIslemler.SinifSQLBaglantiCumlesi);
+    IVeriTabaniIslemleri veriTabaniIslemleri = new SQLVeriTabaniIslemleri();
     public FrmGiris()
     {
         InitializeComponent();
@@ -17,12 +19,6 @@ public partial class FrmGiris : Form
             txtEmail.Text = Email;
         }
         txtSifre.PasswordChar = '*';
-        if (Properties.Settings1.Default.BeniHatirla == true)
-        {
-            txtEmail.Text = Properties.Settings1.Default.KullaniciEmail;
-            txtSifre.Text = Properties.Settings1.Default.KullaniciSifre;
-            checkBoxHatirla.Checked = true;
-        }
     }
 
     private void btnKayitOl_Click(object sender, EventArgs e)
@@ -49,6 +45,22 @@ public partial class FrmGiris : Form
             {
                 MessageBox.Show("Bilgileri eksiksiz giriniz", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
+            }
+            string[] istedigimKolonlar = new string[] {"Id","Ad","Soyad"};
+            string kosullar = $"Email='{txtEmail.Text.Trim()}' and Parola='{GenelIslemler.MD5Encryption(txtSifre.Text.Trim())}'";
+            Hashtable sonuc =  veriTabaniIslemleri.VeriOku("Kullanicilar", istedigimKolonlar,kosullar);
+            if(sonuc.Count == 0)
+            {
+                MessageBox.Show("Email ya da şifre yanlış tekrar deneyiniz.");
+            }
+            else
+            {
+                GenelIslemler.GirisYapanKullaniciId = (int)sonuc["Id"];
+                GenelIslemler.GirisYapanKullaniciAdSoyad = $"{sonuc["Ad"]} {sonuc["Soyad"]}";
+                MessageBox.Show($"Hoşgeldiniz... {GenelIslemler.GirisYapanKullaniciAdSoyad}");
+                this.Hide();
+                FrmAnaSayfa frmAnasayfa = new FrmAnaSayfa();
+                frmAnasayfa.Show();
             }
 
         }

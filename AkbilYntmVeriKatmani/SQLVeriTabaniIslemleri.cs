@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text;
 
 namespace AkbilYntmVeriKatmani;
 
@@ -12,7 +13,7 @@ public class SQLVeriTabaniIslemleri : IVeriTabaniIslemleri
     private SqlCommand komut;
     public SQLVeriTabaniIslemleri()
     {
-        BaglantiCumlesi = "";
+        BaglantiCumlesi = GenelIslemler.SinifSQLBaglantiCumlesi;
         baglanti = new SqlConnection(BaglantiCumlesi);
         komut = new SqlCommand();
         komut.Connection = baglanti;
@@ -27,6 +28,7 @@ public class SQLVeriTabaniIslemleri : IVeriTabaniIslemleri
     }
     private void BaglantiyiAc()
     {
+        baglanti.ConnectionString = BaglantiCumlesi;
         if (baglanti.State != ConnectionState.Open)
         {
             baglanti.Open();
@@ -137,7 +139,13 @@ public class SQLVeriTabaniIslemleri : IVeriTabaniIslemleri
         {
             Hashtable sonuc = new Hashtable();
             string sutunlar = string.Empty;
+            StringBuilder sb = new StringBuilder();
             //kolonlara , ekleyeceğiz.
+            foreach (var item in kolonlar)
+            {
+                sb.Append($"{item} ,");
+            }
+            sutunlar = sb.ToString().TrimEnd(',');
 
             string sorgu = $"select {sutunlar} from {tabloAdi}";
             if(string.IsNullOrEmpty(kosullar))

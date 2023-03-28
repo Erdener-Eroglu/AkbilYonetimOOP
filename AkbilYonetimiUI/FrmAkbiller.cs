@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AkbilYntmIsKatmani;
+using AkbilYntmVeriKatmani;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +19,7 @@ namespace AkbilYonetimiUI
         {
             InitializeComponent();
         }
-
+        IVeriTabaniIslemleri veriTabaniIslemleri = new SQLVeriTabaniIslemleri();
         private void anaMenüToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -51,6 +53,7 @@ namespace AkbilYonetimiUI
         {
             try
             {
+                dataGridViewAkbiller.DataSource = veriTabaniIslemleri.VeriGetir("Akbiller", kosullar:$"AkbilSahibiId = {GenelIslemler.GirisYapanKullaniciId}");
                 //Bazı kolonlar Gizlensin
                 dataGridViewAkbiller.Columns["AkbilSahibiId"].Visible = false;
                 dataGridViewAkbiller.Columns["VizelendigiTarihi"].HeaderText = "Vizelendiği Tarih";

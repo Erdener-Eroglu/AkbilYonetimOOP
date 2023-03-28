@@ -18,26 +18,7 @@ public partial class FrmAyarlar : Form
 
     private void KullanicininBilgileriniGetir()
     {
-        try
-        {
-            //NOT: Giriş yapmış kullanıcının bilgileriyle select sorgusu yazacağız Kullanıcı bilgisini alabilmek için burada 2 yöntem kullanabiliriz.
-            //Static bir class açıp içinde static GiriYapmisKullaniciEmail propertysi kullanılabilir.
-            //Propertiesden çekebiliriz.
 
-            if (string.IsNullOrEmpty(Properties.Settings1.Default.KullaniciEmail))
-            {
-                MessageBox.Show("Giriş yapmadan buraya ulaşamazsınız");
-                return;
-            }
-            else
-            {
-                
-            }
-        }
-        catch (Exception hata)
-        {
-            MessageBox.Show("Beklenmedik bir hata oluştu." + hata.Message);
-        }
     }
 
     private void btnGuncelle_Click(object sender, EventArgs e)

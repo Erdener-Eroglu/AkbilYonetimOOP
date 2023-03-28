@@ -98,7 +98,7 @@
             txtAd.Location = new Point(140, 34);
             txtAd.Name = "txtAd";
             txtAd.Size = new Size(250, 34);
-            txtAd.TabIndex = 1;
+            txtAd.TabIndex = 0;
             // 
             // txtSoyad
             // 
@@ -114,7 +114,7 @@
             txtEmail.Location = new Point(140, 120);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(250, 34);
-            txtEmail.TabIndex = 1;
+            txtEmail.TabIndex = 2;
             // 
             // txtSifre
             // 
@@ -122,7 +122,7 @@
             txtSifre.Location = new Point(140, 163);
             txtSifre.Name = "txtSifre";
             txtSifre.Size = new Size(250, 34);
-            txtSifre.TabIndex = 1;
+            txtSifre.TabIndex = 3;
             // 
             // btnKayıtOl
             // 
@@ -130,7 +130,7 @@
             btnKayıtOl.Location = new Point(84, 256);
             btnKayıtOl.Name = "btnKayıtOl";
             btnKayıtOl.Size = new Size(306, 42);
-            btnKayıtOl.TabIndex = 2;
+            btnKayıtOl.TabIndex = 5;
             btnKayıtOl.Text = "KAYIT OL";
             btnKayıtOl.UseVisualStyleBackColor = true;
             btnKayıtOl.Click += btnKayıtOl_Click;
@@ -141,7 +141,7 @@
             btnGiris.Location = new Point(84, 313);
             btnGiris.Name = "btnGiris";
             btnGiris.Size = new Size(306, 42);
-            btnGiris.TabIndex = 2;
+            btnGiris.TabIndex = 6;
             btnGiris.Text = "GİRİŞ YAP";
             btnGiris.UseVisualStyleBackColor = true;
             btnGiris.Click += btnGiris_Click;
@@ -151,7 +151,7 @@
             dtpDogumTarihi.Location = new Point(140, 215);
             dtpDogumTarihi.Name = "dtpDogumTarihi";
             dtpDogumTarihi.Size = new Size(250, 27);
-            dtpDogumTarihi.TabIndex = 3;
+            dtpDogumTarihi.TabIndex = 4;
             // 
             // FrmKayitOl
             // 
