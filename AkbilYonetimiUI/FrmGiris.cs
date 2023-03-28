@@ -1,10 +1,11 @@
-﻿using System.Data.SqlClient;
-
+﻿using AkbilYntmIsKatmani;
+using AkbilYntmVeriKatmani;
 namespace AkbilYonetimiUI;
 
 public partial class FrmGiris : Form
 {
     public string Email { get; set; } //Kayıt ol formunda kayıt olan kullanıcının emaili buraya gelsin.
+    IVeriTabaniIslemleri veriTabaniIslemleri = new SQLVeriTabaniIslemleri(GenelIslemler.SinifSQLBaglantiCumlesi);
     public FrmGiris()
     {
         InitializeComponent();

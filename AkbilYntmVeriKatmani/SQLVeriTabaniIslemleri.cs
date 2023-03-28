@@ -144,6 +144,22 @@ public class SQLVeriTabaniIslemleri : IVeriTabaniIslemleri
             {
                 sorgu += $" where {kosullar}";
             }
+            using(baglanti)
+            {
+                komut.CommandText = sorgu;
+                BaglantiyiAc();
+                SqlDataReader okuyucu = komut.ExecuteReader();
+                if(okuyucu.HasRows)
+                {
+                    while(okuyucu.Read())
+                    {
+                        foreach (var item in kolonlar)
+                        {
+                            sonuc.Add(item, okuyucu[item]);
+                        }
+                    }
+                }
+            }
             return sonuc;
         }
         catch (Exception)
