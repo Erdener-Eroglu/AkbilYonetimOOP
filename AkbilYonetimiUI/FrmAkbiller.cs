@@ -39,13 +39,15 @@ namespace AkbilYonetimiUI
                     MessageBox.Show("Akbil NO 16 haneli olmak zorundadır");
                     return;
                 }
-                Dictionary<string,object> yeniAkbilBilgileri = new Dictionary<string,object>();
-                yeniAkbilBilgileri.Add("AkbilNo", $"'{maskedTextBoxAkbilNo.Text}'");
-                yeniAkbilBilgileri.Add("Bakiye", 0);
-                yeniAkbilBilgileri.Add("AkbilTipi", $"'{cmbAkbilTipler.SelectedItem}'");
-                yeniAkbilBilgileri.Add("EklenmeTarihi", $"'{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}'");
-                yeniAkbilBilgileri.Add("VizelendigiTarihi", "null");
-                yeniAkbilBilgileri.Add("AkbilSahibiId", GenelIslemler.GirisYapanKullaniciId);
+                Dictionary<string, object> yeniAkbilBilgileri = new Dictionary<string, object>
+                {
+                    { "AkbilNo", $"'{maskedTextBoxAkbilNo.Text}'" },
+                    { "Bakiye", 0 },
+                    { "AkbilTipi", $"'{cmbAkbilTipler.SelectedItem}'" },
+                    { "EklenmeTarihi", $"'{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}'" },
+                    { "VizelendigiTarihi", "null" },
+                    { "AkbilSahibiId", GenelIslemler.GirisYapanKullaniciId }
+                };
                 string insertCumle = veriTabaniIslemleri.VeriEklemeCumlesiOlustur("Akbiller",yeniAkbilBilgileri);
                 int sonuc = veriTabaniIslemleri.KomutIsle(insertCumle);
                 if(sonuc > 0)
