@@ -34,6 +34,32 @@ namespace AkbilYonetimiUI
                     MessageBox.Show("Lütfen ekleyeceğiniz akbilin türünü seçiniz.");
                     return;
                 }
+                if(maskedTextBoxAkbilNo.Text.Length < 16)
+                {
+                    MessageBox.Show("Akbil NO 16 haneli olmak zorundadır");
+                    return;
+                }
+                Dictionary<string,object> yeniAkbilBilgileri = new Dictionary<string,object>();
+                yeniAkbilBilgileri.Add("AkbilNo", $"'{maskedTextBoxAkbilNo.Text}'");
+                yeniAkbilBilgileri.Add("Bakiye", 0);
+                yeniAkbilBilgileri.Add("AkbilTipi", $"'{cmbAkbilTipler.SelectedItem}'");
+                yeniAkbilBilgileri.Add("EklenmeTarihi", $"'{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}'");
+                yeniAkbilBilgileri.Add("VizelendigiTarihi", "null");
+                yeniAkbilBilgileri.Add("AkbilSahibiId", GenelIslemler.GirisYapanKullaniciId);
+                string insertCumle = veriTabaniIslemleri.VeriEklemeCumlesiOlustur("Akbiller",yeniAkbilBilgileri);
+                int sonuc = veriTabaniIslemleri.KomutIsle(insertCumle);
+                if(sonuc > 0)
+                {
+                    MessageBox.Show("Akbil eklendi");
+                    DataGridViewiDoldur();
+                    maskedTextBoxAkbilNo.Clear();
+                    cmbAkbilTipler.SelectedIndex = -1;
+                    cmbAkbilTipler.Text = "Akbil Tipleri...";
+                }
+                else
+                {
+                    MessageBox.Show("Akbil EKLENEMEDİ!!!!");
+                }
             }
             catch (Exception hata)
             {
