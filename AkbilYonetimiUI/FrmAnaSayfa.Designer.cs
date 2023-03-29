@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             btnAkbil = new Button();
-            button2 = new Button();
+            btnTalimatlar = new Button();
             btnAyarlar = new Button();
             SuspendLayout();
             // 
@@ -45,16 +45,17 @@
             btnAkbil.UseVisualStyleBackColor = false;
             btnAkbil.Click += btnAkbil_Click;
             // 
-            // button2
+            // btnTalimatlar
             // 
-            button2.BackColor = SystemColors.ActiveCaption;
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(95, 171);
-            button2.Name = "button2";
-            button2.Size = new Size(124, 96);
-            button2.TabIndex = 0;
-            button2.Text = "Talimatlar";
-            button2.UseVisualStyleBackColor = false;
+            btnTalimatlar.BackColor = SystemColors.ActiveCaption;
+            btnTalimatlar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnTalimatlar.Location = new Point(95, 171);
+            btnTalimatlar.Name = "btnTalimatlar";
+            btnTalimatlar.Size = new Size(124, 96);
+            btnTalimatlar.TabIndex = 0;
+            btnTalimatlar.Text = "Talimatlar";
+            btnTalimatlar.UseVisualStyleBackColor = false;
+            btnTalimatlar.Click += btnTalimatlar_Click;
             // 
             // btnAyarlar
             // 
@@ -74,7 +75,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(332, 455);
             Controls.Add(btnAyarlar);
-            Controls.Add(button2);
+            Controls.Add(btnTalimatlar);
             Controls.Add(btnAkbil);
             Name = "FrmAnaSayfa";
             Text = "FrmAnaSayfa";
@@ -84,7 +85,7 @@
         #endregion
 
         private Button btnAkbil;
-        private Button button2;
+        private Button btnTalimatlar;
         private Button btnAyarlar;
     }
 }

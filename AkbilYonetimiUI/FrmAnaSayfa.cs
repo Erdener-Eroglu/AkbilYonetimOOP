@@ -30,5 +30,12 @@ namespace AkbilYonetimiUI
             FrmAkbiller frmAkbiller = new FrmAkbiller();
             frmAkbiller.Show();
         }
+
+        private void btnTalimatlar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmTalimatlar frmT = new FrmTalimatlar();
+            frmT.Show();
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace AkbilYonetimiUI
         IVeriTabaniIslemleri veriTabaniIslemleri = new SQLVeriTabaniIslemleri();
         private void anaMenüToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnKaydet_Click(object sender, EventArgs e)
