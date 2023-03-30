@@ -120,7 +120,7 @@ public class SQLVeriTabaniIslemleri : IVeriTabaniIslemleri
             setler = setler.Trim().TrimEnd(',');
 
             sorgu = $"update {tabloAdi} set {setler} ";
-            if (string.IsNullOrEmpty(kosullar))
+            if (!string.IsNullOrEmpty(kosullar))
             {
                 sorgu += $" where {kosullar}";
             }
@@ -148,7 +148,7 @@ public class SQLVeriTabaniIslemleri : IVeriTabaniIslemleri
             sutunlar = sb.ToString().TrimEnd(',');
 
             string sorgu = $"select {sutunlar} from {tabloAdi}";
-            if(string.IsNullOrEmpty(kosullar))
+            if(!string.IsNullOrEmpty(kosullar))
             {
                 sorgu += $" where {kosullar}";
             }
@@ -184,7 +184,7 @@ public class SQLVeriTabaniIslemleri : IVeriTabaniIslemleri
             using (baglanti)
             {
                 string sorgu = $"delete from {tabloAdi}";
-                if (string.IsNullOrEmpty(kosullar))
+                if (!string.IsNullOrEmpty(kosullar))
                 {
                     sorgu += $" where {kosullar}";
                 }

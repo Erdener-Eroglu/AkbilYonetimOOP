@@ -19,6 +19,9 @@ public partial class FrmGiris : Form
             txtEmail.Text = Email;
         }
         txtSifre.PasswordChar = '*';
+        txtEmail.Text = "erdener.eroglu98@hotmail.com";
+        txtSifre.Text = "123456";
+        checkBoxHatirla.Checked = true;
     }
 
     private void btnKayitOl_Click(object sender, EventArgs e)

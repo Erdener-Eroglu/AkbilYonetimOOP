@@ -42,7 +42,8 @@
             dataGridViewTalimatlar = new DataGridView();
             tmrBekleyenTalimat = new System.Windows.Forms.Timer(components);
             contextMenuStrip1 = new ContextMenuStrip(components);
-            silToolStripMenuItem = new ToolStripMenuItem();
+            talimatiYukleToolStripMenuItem = new ToolStripMenuItem();
+            talimatiIptalEtToolStripMenuItem = new ToolStripMenuItem();
             grpYukleme = new GroupBox();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTalimatlar).BeginInit();
@@ -58,7 +59,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { anaMaenuToolStripMenuItem, cikisYapToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(767, 33);
+            menuStrip1.Size = new Size(1146, 33);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -67,12 +68,14 @@
             anaMaenuToolStripMenuItem.Name = "anaMaenuToolStripMenuItem";
             anaMaenuToolStripMenuItem.Size = new Size(114, 29);
             anaMaenuToolStripMenuItem.Text = "Ana Menü";
+            anaMaenuToolStripMenuItem.Click += anaMaenuToolStripMenuItem_Click;
             // 
             // cikisYapToolStripMenuItem
             // 
             cikisYapToolStripMenuItem.Name = "cikisYapToolStripMenuItem";
             cikisYapToolStripMenuItem.Size = new Size(100, 29);
             cikisYapToolStripMenuItem.Text = "Çıkış Yap";
+            cikisYapToolStripMenuItem.Click += cikisYapToolStripMenuItem_Click;
             // 
             // cmbAkbiller
             // 
@@ -145,6 +148,7 @@
             chcTumunuGoster.TabIndex = 7;
             chcTumunuGoster.Text = "Tümünü Göster";
             chcTumunuGoster.UseVisualStyleBackColor = true;
+            chcTumunuGoster.CheckedChanged += chcTumunuGoster_CheckedChanged;
             // 
             // dataGridViewTalimatlar
             // 
@@ -157,21 +161,35 @@
             dataGridViewTalimatlar.ReadOnly = true;
             dataGridViewTalimatlar.RowHeadersWidth = 51;
             dataGridViewTalimatlar.RowTemplate.Height = 29;
-            dataGridViewTalimatlar.Size = new Size(711, 189);
+            dataGridViewTalimatlar.Size = new Size(1100, 189);
             dataGridViewTalimatlar.TabIndex = 8;
+            // 
+            // tmrBekleyenTalimat
+            // 
+            tmrBekleyenTalimat.Tick += tmrBekleyenTalimat_Tick;
             // 
             // contextMenuStrip1
             // 
             contextMenuStrip1.ImageScalingSize = new Size(20, 20);
-            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { silToolStripMenuItem });
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { talimatiYukleToolStripMenuItem, talimatiIptalEtToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(95, 28);
+            contextMenuStrip1.Size = new Size(215, 84);
             // 
-            // silToolStripMenuItem
+            // talimatiYukleToolStripMenuItem
             // 
-            silToolStripMenuItem.Name = "silToolStripMenuItem";
-            silToolStripMenuItem.Size = new Size(94, 24);
-            silToolStripMenuItem.Text = "Sil";
+            talimatiYukleToolStripMenuItem.Image = Properties.Resources.tik;
+            talimatiYukleToolStripMenuItem.Name = "talimatiYukleToolStripMenuItem";
+            talimatiYukleToolStripMenuItem.Size = new Size(214, 26);
+            talimatiYukleToolStripMenuItem.Text = "Talimatı Yükle";
+            talimatiYukleToolStripMenuItem.Click += talimatiYukleToolStripMenuItem_Click;
+            // 
+            // talimatiIptalEtToolStripMenuItem
+            // 
+            talimatiIptalEtToolStripMenuItem.Image = Properties.Resources.cancel;
+            talimatiIptalEtToolStripMenuItem.Name = "talimatiIptalEtToolStripMenuItem";
+            talimatiIptalEtToolStripMenuItem.Size = new Size(214, 26);
+            talimatiIptalEtToolStripMenuItem.Text = "Talimatı İptal Et";
+            talimatiIptalEtToolStripMenuItem.Click += talimatiIptalEtToolStripMenuItem_Click;
             // 
             // grpYukleme
             // 
@@ -188,7 +206,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(767, 481);
+            ClientSize = new Size(1146, 481);
             Controls.Add(grpYukleme);
             Controls.Add(dataGridViewTalimatlar);
             Controls.Add(chcTumunuGoster);
@@ -225,7 +243,8 @@
         private DataGridView dataGridViewTalimatlar;
         private System.Windows.Forms.Timer tmrBekleyenTalimat;
         private ContextMenuStrip contextMenuStrip1;
-        private ToolStripMenuItem silToolStripMenuItem;
         private GroupBox grpYukleme;
+        private ToolStripMenuItem talimatiYukleToolStripMenuItem;
+        private ToolStripMenuItem talimatiIptalEtToolStripMenuItem;
     }
 }
